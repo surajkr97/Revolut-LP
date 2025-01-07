@@ -21,8 +21,6 @@ header.navbar {
     margin-right: 15%;
     top: 0;
     z-index: 10;
-
-    /* transition: transform 0.3s ease-in-out; */
 }
 
 .navbar .logo {
@@ -109,6 +107,8 @@ header.navbar {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    transition: all 0.8s ease-out;
 }
 
 .content h1 {
@@ -193,22 +193,42 @@ header.navbar {
 
 .content2 img {
     height: 50vh;
+    margin-top: 1vh;
+    transition: all 0.8s ease-out;
 }
 
 .content2 h1 {
     font-size: 3rem;
     font-weight: bolder;
+    color: #000;
 }
 
 .content2 p {
     font-size: 1rem;
     margin: 20px 0;
+    color: #000;
 }
 
 .Tc {
     font-size: 0.85rem;
     margin: 20px 0;
     color: gray;
+}
+
+/* Scrolling Down */
+.card .boxshadow {
+    box-shadow: 10 10px 20px rgb(217, 217, 217);
+}
+
+.card.scrolled {
+    z-index: 1000;
+    height: 170%;
+    width: 150%;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 70%;
 }
 
 /* Check Out */
@@ -566,7 +586,7 @@ footer button {
     color: white;
 }
 
-.last-footer{
+.last-footer {
     background-color: #191c1f;
     display: flex;
     justify-content: end;

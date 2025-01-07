@@ -1,45 +1,29 @@
-// stickyNavbar.js
+let container = document.getElementsByClassName("card")[0];
+let specialSection = document.getElementsByClassName("Slider")[0]; // The special section to show on scroll
+let lastScrollTop = 0; // Variable to keep track of last scroll position
+let foreground= document.getElementsByClassName("foreground")[0]; // The first section
+let originalContent=container.innerHTML;
+document.addEventListener("scroll", function () {
+    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // Current scroll position
 
-let lastScrollPosition = 0;
-const navbar = document.querySelector('.navbar');
-const sectionHeroEl = document.querySelector(".hero");
+    // Detect scroll direction
+    if (scrollTop > lastScrollTop) {
+        // Scrolling Down: Add the 'scrolled' class and replace the content with the special section
+        container.classList.add("scrolled");
+        foreground.classList.add("foreground_scrolled")
 
-// Intersection Observer to add sticky class when the hero section is out of view
-const obs = new IntersectionObserver(
-  function (entries) {
-    const ent = entries[0];
-    console.log(ent);
+        // Replace content with special section
+        container.innerHTML = ""; // Clear current content
+        container.appendChild(specialSection); // Add the special section
+    } else {
+        // Scrolling Up: Remove the 'scrolled' class and restore the original content
+        container.classList.remove("scrolled");
+        foreground.classList.remove("foreground_scrolled")
 
-    if (ent.isIntersecting === false) {
-      document.body.classList.add("sticky");
+        // Restore the original content
+        container.innerHTML = originalContent; // Clear the current content
     }
 
-    if (ent.isIntersecting === true) {
-      document.body.classList.remove("sticky");
-    }
-  },
-  {
-    // In the viewport
-    root: null,
-    threshold: 0,
-    rootMargin: "-80px",
-  }
-);
-obs.observe(sectionHeroEl);  // Observing the .hero section
-
-// Scroll functionality to hide/show navbar on scroll
-window.addEventListener('scroll', () => {
-  const currentScrollPosition = window.pageYOffset;
-
-  if (currentScrollPosition > lastScrollPosition) {
-    // Scrolling down, hide navbar
-    navbar.style.transform = 'translateY(-100%)';
-    navbar.style.transition = 'transform 250ms ease-in';
-  } else {
-    // Scrolling up, show navbar
-    navbar.style.transform = 'translateY(0)';
-    navbar.style.transition = 'transform 250ms ease-in';
-  }
-
-  lastScrollPosition = currentScrollPosition;
+    // Update the last scroll position
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scrollTop values
 });
