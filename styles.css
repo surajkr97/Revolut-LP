@@ -370,3 +370,49 @@ header.navbar {
     margin-top: 2%;
     margin-left: 27%;
 }
+
+/* join section */
+
+.join {
+    height: 100vh;
+    background-color: #fff;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.content6 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 72%;
+    margin: 0 auto;
+}
+
+.content6 h1 {
+    font-size: 3.2rem;
+    margin: auto;
+    font-weight: bolder;
+}
+
+.content6 p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+
+    line-height: 1.4;
+    font-weight: lighter;
+}
+
+.content6 .Tc {
+    color: #666;
+}
+
+.content6 a.button {
+    margin: auto auto 3.6% auto;
+}
