@@ -1,8 +1,8 @@
 let container = document.getElementsByClassName("card")[0];
 let specialSection = document.getElementsByClassName("Slider")[0]; // The special section to show on scroll
 let lastScrollTop = 0; // Variable to keep track of last scroll position
-let foreground= document.getElementsByClassName("foreground")[0]; // The first section
-let originalContent=container.innerHTML;
+let foreground = document.getElementsByClassName("foreground")[0]; // The first section
+let originalContent = container.innerHTML;
 document.addEventListener("scroll", function () {
     let scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // Current scroll position
 
