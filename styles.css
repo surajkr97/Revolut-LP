@@ -9,32 +9,36 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+/* Base Styles for the Navbar */
 header.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    color: #fff;
+    padding: 20px 250px;
     position: fixed;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
     top: 0;
+    width: 100%;
     z-index: 10;
+    background-color: transparent; /* Initially transparent */
+    color: #fff; /* White text initially */
+    transition: top 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Logo */
 .navbar .logo {
     font-size: 1.5rem;
     font-weight: bold;
 }
 
+/* Navigation Links */
 .navbar nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #fff;
+    color: inherit;
     font-weight: 500;
 }
 
+/* Auth Buttons */
 .navbar .auth-buttons a {
     margin-left: 15px;
     padding: 8px 15px;
@@ -42,16 +46,36 @@ header.navbar {
     text-decoration: none;
 }
 
+/* Login Button */
 .navbar .auth-buttons .login {
-    color: #fff;
+    color: inherit;
 }
 
+/* Signup Button */
 .navbar .auth-buttons .signup {
     background-color: #fff;
     color: #191c1f;
     border-radius: 25px;
     padding: 13px 25px;
 }
+
+/* Active Navbar Style with Transparency */
+header.navbar.active {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    color: #191c1f; /* Black text */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Active Link Styles */
+header.navbar.active nav a {
+    color: #191c1f; /* Black text for links */
+}
+
+header.navbar.active .auth-buttons .login {
+    color: #191c1f; /* Black text for login button */
+}
+
+
 
 /* Hero Section Styling */
 .hero {

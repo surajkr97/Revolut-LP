@@ -27,3 +27,27 @@ document.addEventListener("scroll", function () {
     // Update the last scroll position
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scrollTop values
 });
+
+
+// NavBar 
+
+const navbar = document.getElementById('navbar');
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > lastScrollY) {
+        // Scrolling down: hide navbar
+        navbar.style.top = '-100px';
+    } else {
+        // Scrolling up: show navbar
+        navbar.style.top = '0';
+        navbar.classList.add('active'); // Add white background and black text
+    }
+
+    // Remove background if at the top of the page
+    if (window.scrollY === 0) {
+        navbar.classList.remove('active');
+    }
+
+    lastScrollY = window.scrollY; // Update scroll position
+});
