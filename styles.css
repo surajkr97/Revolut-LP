@@ -31,11 +31,16 @@ header.navbar {
 }
 
 /* Navigation Links */
+.navbar nav {
+    display: flex;
+    gap: 15px;
+}
+
 .navbar nav a {
-    margin: 0 15px;
     text-decoration: none;
     color: inherit;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 /* Auth Buttons */
@@ -44,11 +49,13 @@ header.navbar {
     padding: 8px 15px;
     border-radius: 5px;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 /* Login Button */
 .navbar .auth-buttons .login {
     color: inherit;
+    white-space: nowrap;
 }
 
 /* Signup Button */
@@ -57,24 +64,54 @@ header.navbar {
     color: #191c1f;
     border-radius: 25px;
     padding: 13px 25px;
+    white-space: nowrap;
 }
 
-/* Active Navbar Style with Transparency */
+/* Active Navbar Style */
 header.navbar.active {
     background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
-    color: #191c1f; /* Black text */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    color: #191c1f;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Active Link Styles */
 header.navbar.active nav a {
-    color: #191c1f; /* Black text for links */
+    color: #191c1f;
 }
 
 header.navbar.active .auth-buttons .login {
-    color: #191c1f; /* Black text for login button */
+    color: #191c1f;
 }
 
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    header.navbar {
+        padding: 20px 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .navbar nav a {
+        display: block;
+        padding: 10px;
+        color: white;
+    }
+
+    .navbar.active nav {
+        display: flex;
+    }
+
+    .auth-buttons {
+        display: none;
+    }
+}
 
 
 /* Hero Section Styling */
@@ -131,7 +168,6 @@ header.navbar.active .auth-buttons .login {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     transition: all 0.8s ease-out;
 }
 
@@ -164,21 +200,18 @@ header.navbar.active .auth-buttons .login {
     display: inline-block;
     margin-top: 20px;
     text-align: left;
-
     margin-top: 8%;
     border-style: solid;
     border-width: 3px;
     border-color: silver;
     height: 65vh;
     width: 50vh;
-
 }
 
 .card h2 {
     font-size: 3rem;
     margin-bottom: 5px;
     font-weight: bolder;
-
     margin-top: 55%;
     display: flex;
     justify-content: center;
@@ -188,7 +221,6 @@ header.navbar.active .auth-buttons .login {
 .card button {
     font-size: 1rem;
     margin-bottom: 5px;
-
     background-color: #fff;
     color: #191c1f;
     border-radius: 25px;
@@ -199,14 +231,11 @@ header.navbar.active .auth-buttons .login {
 }
 
 .card img {
-    height: 6.5rem;
+    height: 20%;
     margin-top: 20%;
-    margin-left: -3%;
 }
 
-
 /* Slider Section */
-
 .Slider {
     height: 100vh;
     display: flex;
@@ -256,7 +285,6 @@ header.navbar.active .auth-buttons .login {
 }
 
 /* Check Out */
-
 .Checkout {
     height: 100vh;
     background-color: black;
@@ -265,6 +293,7 @@ header.navbar.active .auth-buttons .login {
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
 }
 
 .content3 video {
@@ -284,6 +313,29 @@ header.navbar.active .auth-buttons .login {
 .content3 .button {
     background-color: #fff;
     color: black;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .card h2,
+    .card button,
+    .card img {
+        display: none !important;
+    }
+    
+    .card {
+        background: transparent;
+        border: none;
+        height: 40vh;
+        width: 30vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        height: 30vh;
+        width: 25vh;
+    }
 }
 
 /* Coin */
@@ -417,7 +469,7 @@ header.navbar.active .auth-buttons .login {
 /* join section */
 
 .join {
-    height: 100vh;
+    min-height: 100vh;
     background-color: #fff;
     color: black;
     display: flex;
@@ -427,6 +479,7 @@ header.navbar.active .auth-buttons .login {
 
     padding: 20px;
     box-sizing: border-box;
+    /* overflow: hidden; */
 }
 
 .content6 {
@@ -435,21 +488,20 @@ header.navbar.active .auth-buttons .login {
     gap: 20px;
     max-width: 72%;
     margin: 0 auto;
+
+
 }
 
 .content6 h1 {
-    font-size: 3.2rem;
-    margin: auto;
+    font-size: 3.2rem; /* Slightly reduced for better fit */
     font-weight: bolder;
 }
 
 .content6 p {
     font-size: 0.9rem;
-    line-height: 1.5;
-    margin: 0;
-
     line-height: 1.4;
     font-weight: lighter;
+    margin: 0 auto;
 }
 
 .content6 .Tc {
@@ -460,19 +512,28 @@ header.navbar.active .auth-buttons .login {
     margin: auto auto 3.6% auto;
 }
 
-/* 
-Plans Section */
+@media (max-width: 1000px) {
+    .content6 {
+        max-width: 90%;
+    }
+}
 
+/* Plans Section */
+
+/* Plans Section */
 .plans {
-    height: 90vh;
+    min-height: 90vh;
     background-color: #191c1f;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: left;
+    padding: 40px 5%; /* Added padding for smaller screens */
+    overflow: hidden;
 }
 
+/* Container */
 .content7 {
     display: flex;
     flex-direction: column;
@@ -481,65 +542,71 @@ Plans Section */
     margin: auto;
 }
 
+/* Subscription Box */
 .sub {
-    height: 31vh;
-    border-radius: 3vb;
+    border-radius: 20px;
     background-color: #fff;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     text-align: left;
     flex-direction: column;
-    gap: 20px;
-    padding: 25% 10%;
-    /* max-width: 72%; */
-    margin: auto;
-}
-
-.subs1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 130vh;
-    gap: 2%;
+    gap: 15px;
+    padding: 30px; /* Reduced padding for better spacing */
     color: black;
-    /* margin: 1%; */
+    margin-bottom: 15px;
 }
 
-.subs2 {
+/* Subscription Grid */
+.subs1, .subs2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 130vh;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Makes it responsive */
+    max-width: 100%; /* Prevents overflow */
     gap: 2%;
-    color: black;
-    /* margin: 1%; */
+    margin-bottom: 2%;
 }
 
+/* Headings */
 .plans h1 {
     font-size: 2.5rem;
-    margin: 2.5rem 0;
-    font-weight: normal;
-    font-weight: lighter;
+    margin-bottom: 20px;
+    font-weight: 300;
 }
 
+/* Paragraphs */
 .plans p {
     font-size: 1rem;
-    margin: 0;
-
-    line-height: 1.2;
-    font-weight: lighter;
+    line-height: 1.5;
+    font-weight: 300;
 }
 
+/* Arrow Button */
 .sub span {
     font-size: 1.2rem;
     font-weight: bold;
     display: flex;
     justify-content: end;
-    text-align: end;
 }
 
 .sub span a {
     text-decoration: none;
     color: black;
+}
+
+/* Responsive Fixes */
+@media (max-width: 1024px) {
+    .content7 {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .plans {
+        padding: 20px;
+    }
+
+    .subs1, .subs2 {
+        grid-template-columns: 1fr; /* Stacks all plans vertically on small screens */
+    }
 }
 
 /* Footer Section */
